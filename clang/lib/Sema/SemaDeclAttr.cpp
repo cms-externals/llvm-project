@@ -6296,6 +6296,36 @@ static void handleObjCExternallyRetainedAttr(Sema &S, Decl *D,
   handleSimpleAttribute<ObjCExternallyRetainedAttr>(S, D, AL);
 }
 
+static void handleCMSThreadSafeAttr(Sema &S, Decl *D, const ParsedAttr &AL) {
+    assert(!AL.isInvalid());
+
+    if (!(isa<Decl>(D))) {
+      S.Diag(AL.getLoc(), diag::warn_attribute_wrong_decl_type)
+        << AL.getName();
+      return;
+    }
+
+    D->addAttr(::new (S.Context) CMSThreadSafeAttr(AL.getRange(), S.Context,
+                                                   AL.getAttributeSpellingListIndex()));
+}
+
+static void handleCMSThreadGuardAttr(Sema &S, Decl *D, const ParsedAttr &AL) {
+    assert(!AL.isInvalid());
+
+    if (!(isa<Decl>(D) ))  {
+      S.Diag(AL.getLoc(), diag::warn_attribute_wrong_decl_type)
+        << AL.getName() << ExpectedVariableOrFunction;
+      return;
+    }
+    StringRef Str;
+    if (!S.checkStringLiteralArgumentAttr(AL, 0, Str))
+      return;
+
+  D->addAttr(::new (S.Context) CMSThreadGuardAttr(AL.getRange(), S.Context, Str,
+                                                  AL.getAttributeSpellingListIndex()));
+
+}
+
 //===----------------------------------------------------------------------===//
 // Top Level Sema Entry Points
 //===----------------------------------------------------------------------===//
