@@ -559,12 +559,12 @@ def AbiTag : Attr {
 }
 
 def CMSThreadSafe : InheritableAttr {
-  let Spellings = [ CXX11<"cms","thread_safe"> ];
+  let Spellings = [ CXX11<"cms","thread_safe", 200809>, C2x<"cms", "thread_safe> ];
   let Documentation = [Undocumented];
 }
 
 def CMSThreadGuard : InheritableAttr {
-  let Spellings = [ CXX11<"cms","thread_guard"> ];
+  let Spellings = [ CXX11<"cms","thread_guard", 200809>, C2x<"cms", "thread_guard> ];
   let Args = [StringArgument<"GuardVar">];
   let Documentation = [Undocumented];
 }
