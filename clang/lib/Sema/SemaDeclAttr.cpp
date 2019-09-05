@@ -7043,6 +7043,14 @@ static void ProcessDeclAttribute(Sema &S, Scope *scope, Decl *D,
   case ParsedAttr::AT_ObjCExternallyRetained:
     handleObjCExternallyRetainedAttr(S, D, AL);
     break;
+
+  // CMS custom c++11 attributes
+    case ParsedAttr::AT_CMSThreadSafe:
+	    handleCMSThreadSafeAttr(S, D, AL);
+	    break;
+    case ParsedAttr::AT_CMSThreadGuard:
+	    handleCMSThreadGuardAttr(S, D, AL);
+	    break;
   }
 }
 
