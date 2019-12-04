@@ -569,6 +569,11 @@ def CMSThreadGuard : InheritableAttr {
   let Documentation = [Undocumented];
 }
 
+def CMSSaAllow : InheritableAttr {
+  let Spellings = [ CXX11<"cms","sa_allow", 200809>, C2x<"cms", "sa_allow"> ];
+  let Documentation = [Undocumented];
+}
+
 def AddressSpace : TypeAttr {
   let Spellings = [Clang<"address_space">];
   let Args = [IntArgument<"AddressSpace">];
