@@ -7064,6 +7064,9 @@ static void ProcessDeclAttribute(Sema &S, Scope *scope, Decl *D,
     case ParsedAttr::AT_CMSThreadGuard:
 	    handleCMSThreadGuardAttr(S, D, AL);
 	    break;
+    case ParsedAttr::AT_CMSSaAllow:
+	    handleCMSSaAllowAttr(S, D, AL);
+	    break;
   }
 }
 
