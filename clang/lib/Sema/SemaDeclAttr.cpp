@@ -6329,12 +6329,6 @@ static void handleCMSThreadGuardAttr(Sema &S, Decl *D, const ParsedAttr &AL) {
 static void handleCMSSaAllowAttr(Sema &S, Decl *D, const ParsedAttr &AL) {
     assert(!AL.isInvalid());
 
-    if (!(isa<Decl>(D))) {
-      S.Diag(AL.getLoc(), diag::warn_attribute_wrong_decl_type)
-        << AL.getName();
-      return;
-    }
-
     D->addAttr(::new (S.Context) CMSSaAllowAttr(AL.getRange(), S.Context,
                                                    AL.getAttributeSpellingListIndex()));
 }
