@@ -569,7 +569,7 @@ def CMSThreadGuard : InheritableAttr {
   let Documentation = [Undocumented];
 }
 
-def CMSSaAllow : InheritableAttr {
+def CMSSaAllow : Attr {
   let Spellings = [ CXX11<"cms","sa_allow", 200809>, C2x<"cms", "sa_allow"> ];
   let Documentation = [Undocumented];
 }
