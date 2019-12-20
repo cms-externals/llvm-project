@@ -22,6 +22,14 @@
 using namespace clang;
 using namespace sema;
 
+
+static Attr *handleCMSSaAllowAttr(Sema &S, Stmt *St, const ParsedAttr &A,
+                                   SourceRange Range) {
+  CMSSaAllowAttr Attr(A.getRange(), S.Context,
+                       A.getAttributeSpellingListIndex());
+  return ::new (S.Context) auto(Attr);
+}
+
 static Attr *handleFallThroughAttr(Sema &S, Stmt *St, const ParsedAttr &A,
                                    SourceRange Range) {
   FallThroughAttr Attr(A.getRange(), S.Context,
@@ -343,6 +351,8 @@ static Attr *ProcessStmtAttribute(Sema &S, Stmt *St, const ParsedAttr &A,
     return handleOpenCLUnrollHint(S, St, A, Range);
   case ParsedAttr::AT_Suppress:
     return handleSuppressAttr(S, St, A, Range);
+  case ParsedAttr::AT_CMSSaAllow:
+    return handleCMSSaAllowAttr(S, St, A, Range);
   default:
     // if we're here, then we parsed a known attribute, but didn't recognize
     // it as a statement attribute => it is declaration attribute
