@@ -23,8 +23,7 @@ using namespace sema;
 
 static Attr *handleCMSSaAllowAttr(Sema &S, Stmt *St, const ParsedAttr &A,
 				  SourceRange Range) {
-  CMSSaAllowAttr Attr(A.getRange(), S.Context,
-		      A.getAttributeSpellingListIndex());
+  CMSSaAllowAttr Attr(S.Context, A);
   return ::new (S.Context) auto(Attr);
 }
 

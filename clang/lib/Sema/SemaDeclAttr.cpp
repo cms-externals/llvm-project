@@ -6732,12 +6732,11 @@ static void handleCMSThreadSafeAttr(Sema &S, Decl *D, const ParsedAttr &AL) {
 
   if (!(isa<Decl>(D))) {
     S.Diag(AL.getLoc(), diag::warn_attribute_wrong_decl_type)
-      << AL.getName();
+      << AL.getAttrName();
     return;
   }
 
-  D->addAttr(::new (S.Context) CMSThreadSafeAttr(AL.getRange(), S.Context,
-						 AL.getAttributeSpellingListIndex()));
+  D->addAttr(::new (S.Context) CMSThreadSafeAttr(S.Context, AL));
 }
 
 static void handleCMSThreadGuardAttr(Sema &S, Decl *D, const ParsedAttr &AL) {
@@ -6745,23 +6744,21 @@ static void handleCMSThreadGuardAttr(Sema &S, Decl *D, const ParsedAttr &AL) {
 
   if (!(isa<Decl>(D) ))  {
     S.Diag(AL.getLoc(), diag::warn_attribute_wrong_decl_type)
-      << AL.getName() << ExpectedVariableOrFunction;
+      << AL.getAttrName() << ExpectedVariableOrFunction;
     return;
   }
   StringRef Str;
   if (!S.checkStringLiteralArgumentAttr(AL, 0, Str))
     return;
 
-  D->addAttr(::new (S.Context) CMSThreadGuardAttr(AL.getRange(), S.Context, Str,
-                                                  AL.getAttributeSpellingListIndex()));
+  D->addAttr(::new (S.Context) CMSThreadSafeAttr(S.Context, AL));
 
 }
 
 static void handleCMSSaAllowAttr(Sema &S, Decl *D, const ParsedAttr &AL) {
   assert(!AL.isInvalid());
 
-  D->addAttr(::new (S.Context) CMSSaAllowAttr(AL.getRange(), S.Context,
-					      AL.getAttributeSpellingListIndex()));
+  D->addAttr(::new (S.Context) CMSThreadSafeAttr(S.Context, AL));
 }
 
 //===----------------------------------------------------------------------===//
