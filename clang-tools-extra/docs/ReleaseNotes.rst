@@ -132,6 +132,11 @@ New checks
   Finds assignments to the copied object and its direct or indirect members
   in copy constructors and copy assignment operators.
 
+- New :doc:`cms-handle
+  <clang-tidy/checks/cms-handle>` check.
+
+  Finds uses up getByHandle and replaces with get call.
+
 - New :doc:`cppcoreguidelines-init-variables
   <clang-tidy/checks/cppcoreguidelines-init-variables>` check.
 

@@ -1,4 +1,4 @@
-.. title:: clang-tidy - Clang-Tidy Checks
+. title:: clang-tidy - Clang-Tidy Checks
 
 Clang-Tidy Checks
 =================
@@ -126,6 +126,7 @@ Clang-Tidy Checks
    `clang-analyzer-valist.CopyToSelf <clang-analyzer-valist.CopyToSelf.html>`_,
    `clang-analyzer-valist.Uninitialized <clang-analyzer-valist.Uninitialized.html>`_,
    `clang-analyzer-valist.Unterminated <clang-analyzer-valist.Unterminated.html>`_,
+   `cms-handle <cms-handle.html>`_, "Yes"
    `cppcoreguidelines-avoid-goto <cppcoreguidelines-avoid-goto.html>`_,
    `cppcoreguidelines-init-variables <cppcoreguidelines-init-variables.html>`_, "Yes"
    `cppcoreguidelines-interfaces-global-init <cppcoreguidelines-interfaces-global-init.html>`_,
