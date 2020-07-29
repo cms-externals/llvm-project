@@ -112,8 +112,17 @@ Code completion
 
 - Documentation is reflowed in the same way as on hover.
 
+
 Go-to-definition
 ^^^^^^^^^^^^^^^^
+
+- New :doc:`cms-handle
+  <clang-tidy/checks/cms-handle>` check.
+
+  Finds uses up getByHandle and replaces with get call.
+
+- New :doc:`cppcoreguidelines-init-variables
+  <clang-tidy/checks/cppcoreguidelines-init-variables>` check.
 
 - Dependent names in templates may be heuristically resolved
 
