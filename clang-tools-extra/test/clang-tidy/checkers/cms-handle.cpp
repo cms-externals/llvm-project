@@ -1,7 +1,5 @@
 // RUN: %check_clang_tidy %s cms-handle %t
 
-#include <string>
-
 namespace edm {
 
   template<typename T>
