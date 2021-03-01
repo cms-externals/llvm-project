@@ -11,6 +11,7 @@
 #define LLVM_CLANG_TOOLS_EXTRA_CLANG_TIDY_CMS_HANDLE_H
 
 #include "../ClangTidy.h"
+#include "../ClangTidyCheck.h"
 #include <llvm/Support/SaveAndRestore.h>
 
 namespace clang {
