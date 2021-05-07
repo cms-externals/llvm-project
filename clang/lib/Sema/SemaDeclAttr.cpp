@@ -7610,8 +7610,8 @@ EnforceTCBLeafAttr *Sema::mergeEnforceTCBLeafAttr(
     Decl *D, const EnforceTCBLeafAttr &AL) {
   return mergeEnforceTCBAttrImpl<EnforceTCBLeafAttr, EnforceTCBAttr>(
       *this, D, AL);
-
-		static void handleCMSThreadSafeAttr(Sema &S, Decl *D, const ParsedAttr &AL) {
+}
+static void handleCMSThreadSafeAttr(Sema &S, Decl *D, const ParsedAttr &AL) {
   assert(!AL.isInvalid());
 
   if (!(isa<Decl>(D))) {
