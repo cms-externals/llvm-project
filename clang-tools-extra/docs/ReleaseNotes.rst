@@ -140,6 +140,7 @@ Code completion
   deuglified (``vector<_Tp>`` is now ``vector<Tp>``) and many
   ``__implementation_details`` are hidden altogether.
 
+
 Signature help
 ^^^^^^^^^^^^^^
 
@@ -219,6 +220,11 @@ New checks
   Suggests switching the initialization pattern of ``absl::Cleanup``
   instances from the factory function to class template argument
   deduction (CTAD), in C++17 and higher.
+
+- New :doc:`cms-handle
+  <clang-tidy/checks/cms-handle>` check.
+
+  Finds uses up getByHandle and replaces with get call.
 
 - New :doc:`bugprone-stringview-nullptr
   <clang-tidy/checks/bugprone-stringview-nullptr>` check.
