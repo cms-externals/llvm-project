@@ -1,4 +1,4 @@
-.. title:: clang-tidy - Clang-Tidy Checks
+. title:: clang-tidy - Clang-Tidy Checks
 
 Clang-Tidy Checks
 =================
@@ -148,6 +148,7 @@ Clang-Tidy Checks
    `clang-analyzer-valist.Uninitialized <clang-analyzer-valist.Uninitialized.html>`_,
    `clang-analyzer-valist.Unterminated <clang-analyzer-valist.Unterminated.html>`_,
    `concurrency-mt-unsafe <concurrency-mt-unsafe.html>`_,
+   `cms-handle <cms-handle.html>`_, "Yes"
    `concurrency-thread-canceltype-asynchronous <concurrency-thread-canceltype-asynchronous.html>`_,
    `cppcoreguidelines-avoid-goto <cppcoreguidelines-avoid-goto.html>`_,
    `cppcoreguidelines-avoid-non-const-global-variables <cppcoreguidelines-avoid-non-const-global-variables.html>`_,
