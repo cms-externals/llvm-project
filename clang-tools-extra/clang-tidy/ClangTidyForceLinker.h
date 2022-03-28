@@ -137,6 +137,11 @@ extern volatile int ZirconModuleAnchorSource;
 static int LLVM_ATTRIBUTE_UNUSED ZirconModuleAnchorDestination =
     ZirconModuleAnchorSource;
 
+// This anchor is used to force the linker to link the CMS.
+extern volatile int CMSModuleAnchorSource;
+static int LLVM_ATTRIBUTE_UNUSED CMSModuleAnchorDestination =
+    CMSModuleAnchorSource;
+
 } // namespace clang::tidy
 
 #endif

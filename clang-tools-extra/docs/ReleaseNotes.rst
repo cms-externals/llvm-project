@@ -120,6 +120,11 @@ New checks
 
   Warns when a struct or class uses const or reference (lvalue or rvalue) data members.
 
+- New :doc:`cms-handle
+  <clang-tidy/checks/cms-handle>` check.
+
+  Finds uses up getByHandle and replaces with get call.
+
 - New :doc:`cppcoreguidelines-avoid-do-while
   <clang-tidy/checks/cppcoreguidelines/avoid-do-while>` check.
 
