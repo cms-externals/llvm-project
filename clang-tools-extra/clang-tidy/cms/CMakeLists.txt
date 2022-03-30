@@ -1,4 +1,7 @@
-set(LLVM_LINK_COMPONENTS support)
+set(LLVM_LINK_COMPONENTS
+  support
+  FrontendOpenMP
+  )
 
 add_clang_library(clangTidyCMSModule
   CMSTidyModule.cpp
@@ -6,12 +9,19 @@ add_clang_library(clangTidyCMSModule
   ESRecordGetCheck.cpp
   
   LINK_LIBS
+  clangTidy
+  clangTidyUtils
+
+  DEPENDS
+  omp_gen
+  )
+
+clang_target_link_libraries(clangTidyCMSModule
+  PRIVATE
   clangAST
   clangASTMatchers
   clangBasic
   clangLex
-  clangTidy
-  clangTidyUtils
   clangTooling
-  )
-
+  clangTransformer
+  ) 
