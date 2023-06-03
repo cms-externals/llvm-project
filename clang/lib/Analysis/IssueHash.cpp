@@ -112,6 +112,9 @@ static std::string GetEnclosingDeclContextSignature(const Decl *D) {
       // the method.
       DeclName = ND->getQualifiedNameAsString();
       break;
+    case Decl::FieldDecl:
+      DeclName = ND->getQualifiedNameAsString();
+      break;
     default:
       break;
     }
