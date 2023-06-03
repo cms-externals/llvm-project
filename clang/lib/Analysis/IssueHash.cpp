@@ -98,6 +98,8 @@ static std::string GetEnclosingDeclContextSignature(const Decl *D) {
     case Decl::Record:
     case Decl::CXXRecord:
     case Decl::Enum:
+    case Decl::Field:
+    case Decl::Var:
       DeclName = ND->getQualifiedNameAsString();
       break;
     case Decl::CXXConstructor:
@@ -110,9 +112,6 @@ static std::string GetEnclosingDeclContextSignature(const Decl *D) {
     case Decl::ObjCMethod:
       // ObjC Methods can not be overloaded, qualified name uniquely identifies
       // the method.
-      DeclName = ND->getQualifiedNameAsString();
-      break;
-    case Decl::FieldDecl:
       DeclName = ND->getQualifiedNameAsString();
       break;
     default:
