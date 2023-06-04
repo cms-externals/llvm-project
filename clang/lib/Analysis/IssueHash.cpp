@@ -98,6 +98,8 @@ static std::string GetEnclosingDeclContextSignature(const Decl *D) {
     case Decl::Record:
     case Decl::CXXRecord:
     case Decl::Enum:
+    case Decl::Field:
+    case Decl::Var:
       DeclName = ND->getQualifiedNameAsString();
       break;
     case Decl::CXXConstructor:
