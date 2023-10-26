@@ -131,6 +131,11 @@ New checks
 - New :doc:`bugprone-non-zero-enum-to-bool-conversion
   <clang-tidy/checks/bugprone/non-zero-enum-to-bool-conversion>` check.
 
+- New :doc:`cms-handle
+  <clang-tidy/checks/cms-handle>` check.
+
+  Finds uses up getByHandle and replaces with get call.
+
   Detect implicit and explicit casts of ``enum`` type into ``bool`` where ``enum`` type
   doesn't have a zero-value enumerator.
 
