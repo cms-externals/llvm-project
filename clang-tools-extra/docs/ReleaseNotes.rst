@@ -183,6 +183,21 @@ New checks
   Finds unscoped (non-class) ``enum`` declarations and suggests using
   ``enum class`` instead.
 
+- New :doc:`cms-handle
+  <clang-tidy/checks/cms-handle>` check.
+
+  Finds uses up getByHandle and replaces with get call.
+
+  Detect implicit and explicit casts of ``enum`` type into ``bool`` where ``enum`` type
+  doesn't have a zero-value enumerator.
+
+- New :doc:`bugprone-inc-dec-in-conditions
+  <clang-tidy/checks/bugprone/inc-dec-in-conditions>` check.
+
+  Detects return statements that return a constant reference parameter as constant
+  reference. This may cause use-after-free errors if the caller uses xvalues as
+  arguments.
+
 - New :doc:`llvm-prefer-static-over-anonymous-namespace
   <clang-tidy/checks/llvm/prefer-static-over-anonymous-namespace>` check.
 
