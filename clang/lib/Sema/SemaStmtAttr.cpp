@@ -25,6 +25,12 @@
 using namespace clang;
 using namespace sema;
 
+static Attr *handleCMSSaAllowAttr(Sema &S, Stmt *St, const ParsedAttr &A,
+                                  SourceRange Range) {
+  CMSSaAllowAttr Attr(S.Context, A);
+  return ::new (S.Context) auto(Attr);
+}
+
 static Attr *handleFallThroughAttr(Sema &S, Stmt *St, const ParsedAttr &A,
                                    SourceRange Range) {
   FallThroughAttr Attr(S.Context, A);
@@ -672,6 +678,8 @@ static Attr *ProcessStmtAttribute(Sema &S, Stmt *St, const ParsedAttr &A,
     return handleCodeAlignAttr(S, St, A);
   case ParsedAttr::AT_MSConstexpr:
     return handleMSConstexprAttr(S, St, A, Range);
+  case ParsedAttr::AT_CMSSaAllow:
+    return handleCMSSaAllowAttr(S, St, A, Range);
   default:
     // N.B., ClangAttrEmitter.cpp emits a diagnostic helper that ensures a
     // declaration attribute is not written on a statement, but this code is

@@ -6101,6 +6101,39 @@ EnforceTCBLeafAttr *Sema::mergeEnforceTCBLeafAttr(
   return mergeEnforceTCBAttrImpl<EnforceTCBLeafAttr, EnforceTCBAttr>(
       *this, D, AL);
 }
+static void handleCMSThreadSafeAttr(Sema &S, Decl *D, const ParsedAttr &AL) {
+  assert(!AL.isInvalid());
+
+  if (!(isa<Decl>(D))) {
+    S.Diag(AL.getLoc(), diag::warn_attribute_wrong_decl_type)
+      << AL.getAttrName();
+    return;
+  }
+
+  D->addAttr(::new (S.Context) CMSThreadSafeAttr(S.Context, AL));
+}
+
+static void handleCMSThreadGuardAttr(Sema &S, Decl *D, const ParsedAttr &AL) {
+  assert(!AL.isInvalid());
+
+  if (!(isa<Decl>(D) ))  {
+    S.Diag(AL.getLoc(), diag::warn_attribute_wrong_decl_type)
+      << AL.getAttrName() << ExpectedVariableOrFunction;
+    return;
+  }
+  StringRef Str;
+  if (!S.checkStringLiteralArgumentAttr(AL, 0, Str))
+    return;
+
+  D->addAttr(::new (S.Context) CMSThreadSafeAttr(S.Context, AL));
+
+}
+
+static void handleCMSSaAllowAttr(Sema &S, Decl *D, const ParsedAttr &AL) {
+  assert(!AL.isInvalid());
+
+  D->addAttr(::new (S.Context) CMSThreadSafeAttr(S.Context, AL));
+}
 
 static void handleVTablePointerAuthentication(Sema &S, Decl *D,
                                               const ParsedAttr &AL) {
@@ -7079,6 +7112,18 @@ ProcessDeclAttribute(Sema &S, Scope *scope, Decl *D, const ParsedAttr &AL,
 
   case ParsedAttr::AT_EnforceTCBLeaf:
     handleEnforceTCBAttr<EnforceTCBLeafAttr, EnforceTCBAttr>(S, D, AL);
+  
+// CMS custom c++11 attributes
+  case ParsedAttr::AT_CMSThreadSafe:
+    handleCMSThreadSafeAttr(S, D, AL);
+    break;
+
+  case ParsedAttr::AT_CMSThreadGuard:
+    handleCMSThreadGuardAttr(S, D, AL);
+    break;
+
+  case ParsedAttr::AT_CMSSaAllow:
+    handleCMSSaAllowAttr(S, D, AL);
     break;
 
   case ParsedAttr::AT_BuiltinAlias:

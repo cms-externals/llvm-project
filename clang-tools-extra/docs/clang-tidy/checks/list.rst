@@ -174,6 +174,7 @@ Clang-Tidy Checks
    :doc:`cert-msc51-cpp <cert/msc51-cpp>`,
    :doc:`cert-oop57-cpp <cert/oop57-cpp>`,
    :doc:`cert-oop58-cpp <cert/oop58-cpp>`,
+   :doc:`cms-handle <cms-handle>`, "Yes"
    :doc:`concurrency-mt-unsafe <concurrency/mt-unsafe>`,
    :doc:`concurrency-thread-canceltype-asynchronous <concurrency/thread-canceltype-asynchronous>`,
    :doc:`cppcoreguidelines-avoid-capturing-lambda-coroutines <cppcoreguidelines/avoid-capturing-lambda-coroutines>`,
