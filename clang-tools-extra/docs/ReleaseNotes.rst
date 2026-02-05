@@ -320,6 +320,17 @@ New checks
 - New :doc:`google-runtime-float
   <clang-tidy/checks/google/runtime-float>` check.
 
+- New :doc:`cms-handle
+  <clang-tidy/checks/cms-handle>` check.
+
+  Finds uses up getByHandle and replaces with get call.
+
+  Detect implicit and explicit casts of ``enum`` type into ``bool`` where ``enum`` type
+  doesn't have a zero-value enumerator.
+
+- New :doc:`llvm-prefer-static-over-anonymous-namespace
+  <clang-tidy/checks/llvm/prefer-static-over-anonymous-namespace>` check.
+
   Finds uses of ``long double`` and suggests against their use due to lack of
   portability.
 
