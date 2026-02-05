@@ -231,6 +231,7 @@ getScopeFromNormalizedScopeName(StringRef ScopeName) {
       .Case("vk", AttributeCommonInfo::Scope::VK)
       .Case("msvc", AttributeCommonInfo::Scope::MSVC)
       .Case("omp", AttributeCommonInfo::Scope::OMP)
+      .Case("cms", AttributeCommonInfo::Scope::CMS)
       .Case("riscv", AttributeCommonInfo::Scope::RISCV);
 }
 
